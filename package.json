@@ -1,15 +1,19 @@
 {
-  "name": "site",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^3.1.4"
-  }
+	"name": "site",
+	"version": "0.0.1",
+	"description": "Website personal for Rospirski Assistência Técnica",
+	"productName": "Rospirski Site",
+	"author": "Valdir Rospirski <valdir.rospirski@gmail.com>",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"astro": "^3.1.4"
+	}
 }
