@@ -1,0 +1,24 @@
+// Colors
+$black1: #111111;
+$black2: #070707;
+$black3: #151516;
+$golden: #fcd34d;
+$green: #1fb958;
+$white: #ffffff;
+$indigo: #c7d2fe;
+$amber: #fffbeb;
+
+// Font
+$font1: 'Montserrat';
+$font2: 'Inter';
+
+:root {
+  --color-black1: #{$black1};
+  --color-black2: #{$black2};
+  --color-black3: #{$black3};
+  --color-golden: #{$golden};
+  --color-green: #{$green};
+  --color-white: #{$white};
+  --color-indigo: #{$indigo};
+  --color-amber: #{$amber};
+}

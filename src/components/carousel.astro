@@ -1,0 +1,153 @@
+---
+const depoimentos = [
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
+    name: 'Matheus Teixeira Spohr',
+    type: 'Facebook',
+    img: 'https://scontent.fpgz4-1.fna.fbcdn.net/v/t39.30808-6/333876365_165515066238869_468073245476262004_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeFmeAIlXq81FvNHq5MokApgWjlV4gbb_LpaOVXiBtv8uh_rvgtUy55qFaRO8f5JlEl8tWSUhhM0wygsGVPFITsE&_nc_ohc=BnLG9tP8NSUAX95pm0A&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfCxwEQT5Os0LFDOocN_pdokzMpBq-Mn9aVsbXnWS-61gQ&oe=6518C279',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
+    name: 'Erica Schwartz',
+    type: 'Facebook',
+    img: 'https://scontent.fpgz4-1.fna.fbcdn.net/v/t39.30808-6/349892299_983058543050376_4479868663000780907_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeFLIFJ8FB-I_42JVeRFjtxzNb2AeyJkDE41vYB7ImQMTtlKQ_ubFFjdSXq7IqdERVijvR81AtBFJoxN0q0W81v7&_nc_ohc=QDOzgKnOMJQAX_Gyymg&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfCCxGN3nV4a5AdxO6avoiBpyMuU1YMhob1PemMm26R1jg&oe=65195216',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
+    name: 'Pablo Monfron Cutes',
+    type: 'Facebook',
+    img: 'https://scontent.fpgz4-1.fna.fbcdn.net/v/t1.6435-9/72241300_574486113323153_6878639297071677440_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeE1XLAM7oyl-jRJ3orMye-TvaidadKsyn29qJ1p0qzKfXToKUmuRlOEZjHRXG_XpQwRBSPGB_LwUKYx8yqAJgmE&_nc_ohc=6TsCjwXlv78AX8JJVSJ&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfA4RvSfx_ElM3iy2oyE7r31CbF-iGjtOlgrZwt8HLPZEg&oe=653B9A8A',
+  },
+]
+---
+
+<div class="p-5">
+  <div class="carousel h-96 sm:h-72">
+    <div class="slides h-96 sm:h-72">
+      {
+        depoimentos.map((i) => (
+          <div class="slide h-full flex flex-col ">
+            <div class="max-w-3xl mx-auto flex items-center grow">
+              <p class="font-medium text-2xl text-[#999] text-center">{i.text}</p>
+            </div>
+            <div class="flex items-center justify-center font-medium text-base flex-wrap flex-col sm:flex-row">
+              <div class="m-1 mr-2 w-16 h-16 sm:w-10 sm:h-10 relative flex justify-center items-center rounded-full bg-gray-500 text-xl text-white">
+                <img src={i.img} class="rounded-full" />
+                <div class="absolute right-0 bottom-0 w-3 h-3 rounded-full bg-golden" />
+              </div>
+              <div>{i.name}</div>
+              <div class="px-1 hidden sm:block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M11 0H14L9 20H6L11 0Z" fill="#FCD34D" />
+                </svg>
+              </div>
+              <div class="w-10 h-1 bg-golden rounded my-1 block sm:hidden" />
+              <div>{i.type}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="controls">
+      <div class="control prev-slide">&#9668;</div>
+      <div class="control next-slide">&#9658;</div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  $carousel-height: 250px;
+  $control-size: 50px;
+
+  .carousel {
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+
+    &:hover .controls {
+      opacity: 1;
+    }
+
+    .controls {
+      opacity: 0;
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      justify-content: space-between;
+      width: 100%;
+      z-index: 99999;
+      transition: all ease 0.5s;
+
+      .control {
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: rgba(#fcd34d, 0.7);
+        opacity: 0.5;
+        transition: ease 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .slides {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      display: flex;
+      width: 100%;
+      transition: 1s ease-in-out all;
+
+      .slide {
+        min-width: 100%;
+      }
+    }
+  }
+</style>
+
+<script>
+  const delay = 3000 //ms
+
+  const slides = document.querySelector('.slides')
+  const slidesCount = slides.childElementCount
+  const maxLeft = (slidesCount - 1) * 100 * -1
+
+  let current = 0
+
+  function changeSlide(next = true) {
+    if (next) {
+      current += current > maxLeft ? -100 : current * -1
+    } else {
+      current = current < 0 ? current + 100 : maxLeft
+    }
+
+    slides.style.left = current + '%'
+  }
+
+  let autoChange = setInterval(changeSlide, delay)
+  const restart = function () {
+    clearInterval(autoChange)
+    autoChange = setInterval(changeSlide, delay)
+  }
+
+  // Controls
+  document.querySelector('.next-slide')?.addEventListener('click', function () {
+    changeSlide()
+    restart()
+  })
+
+  document.querySelector('.prev-slide')?.addEventListener('click', function () {
+    changeSlide(false)
+    restart()
+  })
+</script>
