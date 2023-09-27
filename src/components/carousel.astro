@@ -1,22 +1,10 @@
 ---
 const depoimentos = [
   {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
-    name: 'Matheus Teixeira Spohr',
-    type: 'Facebook',
-    img: 'https://scontent.fpgz4-1.fna.fbcdn.net/v/t39.30808-6/333876365_165515066238869_468073245476262004_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeFmeAIlXq81FvNHq5MokApgWjlV4gbb_LpaOVXiBtv8uh_rvgtUy55qFaRO8f5JlEl8tWSUhhM0wygsGVPFITsE&_nc_ohc=BnLG9tP8NSUAX95pm0A&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfCxwEQT5Os0LFDOocN_pdokzMpBq-Mn9aVsbXnWS-61gQ&oe=6518C279',
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
-    name: 'Erica Schwartz',
-    type: 'Facebook',
-    img: 'https://scontent.fpgz4-1.fna.fbcdn.net/v/t39.30808-6/349892299_983058543050376_4479868663000780907_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeFLIFJ8FB-I_42JVeRFjtxzNb2AeyJkDE41vYB7ImQMTtlKQ_ubFFjdSXq7IqdERVijvR81AtBFJoxN0q0W81v7&_nc_ohc=QDOzgKnOMJQAX_Gyymg&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfCCxGN3nV4a5AdxO6avoiBpyMuU1YMhob1PemMm26R1jg&oe=65195216',
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
+    text: 'Recomendo muito, precisei dos serviço dele para consertar um radio queimado, a troca da tela de um celular e a troca do carregador do outro, fez todos os serviço num ótimo prazo para entrega, e com um valor super acessível, fora o ótimo atendimento e localização.',
     name: 'Pablo Monfron Cutes',
     type: 'Facebook',
-    img: 'https://scontent.fpgz4-1.fna.fbcdn.net/v/t1.6435-9/72241300_574486113323153_6878639297071677440_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeE1XLAM7oyl-jRJ3orMye-TvaidadKsyn29qJ1p0qzKfXToKUmuRlOEZjHRXG_XpQwRBSPGB_LwUKYx8yqAJgmE&_nc_ohc=6TsCjwXlv78AX8JJVSJ&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfA4RvSfx_ElM3iy2oyE7r31CbF-iGjtOlgrZwt8HLPZEg&oe=653B9A8A',
+    img: '/avatars/pablo.jpg',
   },
 ]
 ---
@@ -32,7 +20,7 @@ const depoimentos = [
             </div>
             <div class="flex items-center justify-center font-medium text-base flex-wrap flex-col sm:flex-row">
               <div class="m-1 mr-2 w-16 h-16 sm:w-10 sm:h-10 relative flex justify-center items-center rounded-full bg-gray-500 text-xl text-white">
-                <img src={i.img} class="rounded-full" />
+                <img src={i.img} class="rounded-full" alt={i.name} />
                 <div class="absolute right-0 bottom-0 w-3 h-3 rounded-full bg-golden" />
               </div>
               <div>{i.name}</div>

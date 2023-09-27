@@ -1,13 +1,16 @@
 ---
 import '../css/index.scss'
+import { GoogleAnalytics } from 'astro-analytics'
 import Header from '../components/header.astro'
+import { SEO } from 'astro-seo'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const resolvedImageWithDomain = new URL('/opengraph.jpg', Astro.site).toString()
 ---
 
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
@@ -31,6 +34,36 @@ import Header from '../components/header.astro'
     <meta name="msapplication-TileColor" content="#FCD34D" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#111" />
+
+    <SEO
+      title="Rospirski Assistência Técnica"
+      description="Assistência Técnica Especializada em Celulares, Computadores e Notebooks - Reparos Avançados com Qualidade e Garantia em Ipiranga - Paraná"
+      canonical={canonicalURL}
+      twitter={{
+        creator: '@rospirskitech',
+        site: '@rospirskitech',
+        card: 'summary_large_image',
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: 'website',
+          title: `Assistência Técnica Especializada em Celulares, Computadores e Notebooks`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: 'Astroship Homepage Screenshot',
+        },
+        optional: {
+          locale: 'pt_BR',
+          description:
+            'Reparos avançados com qualidade e garantia em Ipiranga Paraná. Sua melhor escolha para assistência técnica.',
+          siteName: 'Rospirski Assistência Técnica',
+        },
+      }}
+    />
+
+    <GoogleAnalytics id="UA-54105975-4" />
 
     <title>Rospirski Assistência Técnica</title>
   </head>

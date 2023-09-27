@@ -55,10 +55,11 @@ const links = [
 
   <div id="navbar-menu" class="absolute z-50 hidden mx-auto">
     <div id="navbar-backdrop" class="fixed inset-0 bg-gray-800 opacity-25"></div>
-    <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+    <nav
+      class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 border-r overflow-y-auto bg-black1 border-gray-800">
       <button id="navbar-close">
         <svg
-          class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+          class="h-6 w-6 text-white cursor-pointer hover:text-gray-100"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -67,7 +68,7 @@ const links = [
         </svg>
       </button>
 
-      <ul class="mt-6 gap-4 font-1 text-lg text-black flex flex-col">
+      <ul class="mt-6 gap-4 font-1 text-lg text-white flex flex-col">
         {
           links.map((i) => (
             <li>
