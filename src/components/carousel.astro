@@ -162,7 +162,7 @@ const depoimentos = [
       slidersH.forEach((i) => {
         if (i.clientHeight > maxHeightHa) maxHeightHa = i.clientHeight
       })
-
+      maxHeightHa += 50
       document.querySelector('.carousel')?.setAttribute('style', `height:${maxHeightHa}px`)
       document.querySelector('.slides')?.setAttribute('style', `height:${maxHeightHa}px`)
     }
