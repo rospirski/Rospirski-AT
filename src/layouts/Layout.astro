@@ -13,18 +13,6 @@ const resolvedImageWithDomain = new URL('/opengraph.jpg', Astro.site).toString()
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M31BRVL955"></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-
-      gtag('config', 'G-M31BRVL955')
-    </script>
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
