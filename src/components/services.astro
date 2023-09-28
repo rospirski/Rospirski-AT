@@ -1,25 +1,26 @@
 ---
+import { Icon } from 'astro-icon'
 const services = [
   {
     title: 'Reparo de placas',
     label: 'Com um serviço dedicado, seu aparelho voltará funcionando perfeitamente em pouco tempo!',
-    icon: 'https://assets.rospirski.com/img/icons/motherboard.svg',
+    icon: 'motherboard',
   },
   {
     title: 'Troca de componentes variados',
     label: 'Desde capacitores até microcontroladores, estamos prontos para deixar seu aparelho novo.',
-    icon: 'https://assets.rospirski.com/img/icons/chip.svg',
+    icon: 'chip',
   },
   {
     title: 'Troca de carcaças',
     label: 'Smartphone, notebook ou tablet? Não se preocupe, você vai se surpreender com o resultado final!',
-    icon: 'https://assets.rospirski.com/img/icons/case.svg',
+    icon: 'case',
   },
   {
     title: 'Assistência especializada',
     label:
       'Conte conosco para resolver seus problemas . Entre em contato agora mesmo e deixe seu aparelho nas mãos de profissionais competentes!',
-    icon: 'https://assets.rospirski.com/img/icons/winner.svg',
+    icon: 'winner',
   },
 ]
 ---
@@ -40,7 +41,7 @@ const services = [
             <div class="flex gap-4">
               <div>
                 <div class="bg-[#FBBF24] rounded-sm h-12 w-12 flex items-center justify-center">
-                  <img src={i.icon} alt={i.title} class="object-fill" />
+                  <Icon name={i.icon} class="text-white w-8" />
                 </div>
               </div>
               <div>

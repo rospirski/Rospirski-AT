@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import VRImage from '/src/assets/img/vr.jpg'
 import Carousel from './carousel.astro'
 const infos = [
   {
@@ -19,20 +21,20 @@ const infos = [
 <section id="sobre">
   <div class="bg-black3 text-white py-24">
     <div class="container max-w-7xl flex items-center relative">
-      <div class="details w-11 h-full absolute left-5 hidden sm:block"></div>
+      <div
+        class="details w-11 h-full absolute left-5 hidden sm:block bg-[url('https://assets.rospirski.com/img/icons/details.svg')]">
+      </div>
       <div class="px-5 sm:pl-32 w-full">
         <div class="max-w-[1036px] mx-auto block md:grid md:grid-cols-10 md:gap-10 md:items-center">
-          <div class="w-full max-w-xs md:w-auto mx-auto sm:mx-0 mb-20 md:col-span-4">
-            <img
-              src="https://scontent.fpgz4-1.fna.fbcdn.net/v/t1.6435-9/124514016_3717335248288808_1241638968410583017_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHwg3jJXIYAs9K8KVh62J81w3fjVoDKznnDd-NWgMrOebEEnAZN7IIeXXX8NY8Bi5lDok4up71C98oZyrsJUFVc&_nc_ohc=yl4Xv1CxU7wAX_ixnFS&_nc_ht=scontent.fpgz4-1.fna&oh=00_AfDzQcz2H7cP-OHEIOc0R_lEvvwQKOpbPvSLAGULp1pY_g&oe=653AD51A"
-              alt="Valdir Rospirski Técnico"
-              class="object-fill h-auto rounded-full"
-            />
+          <div class="md:col-span-4 flex items-center justify-center">
+            <Image src={VRImage} alt="Valdir Rospirski Técnico" class="rounded-full w-52 sm:w-72 mb-20 md:mb-0" />
           </div>
           <div class="md:col-span-6">
             <div>
               <h2
-                class="bg-[#FCD34D] inline-block px-5 text-black font-medium tracking-[.4px] rounded-[32px] about-text relative z-10">
+                class="bg-[#FCD34D] inline-block px-5 text-black font-medium tracking-[.4px] rounded-[32px] about-text relative z-10
+                before:content-[''] before:absolute before:block before:bg-[url('https://assets.rospirski.com/img/icons/quote.svg')] before:bg-repeat
+                before:z-10 before:w-36 before:h-36 before:top-[-77px] before:left-[-30px]">
                 SOBRE MIM
               </h2>
             </div>
@@ -69,24 +71,3 @@ const infos = [
     </div>
   </div>
 </section>
-
-<style lang="scss">
-  .details {
-    background: url('https://assets.rospirski.com/img/icons/details.svg');
-    background-repeat: repeat;
-  }
-
-  .about-text {
-    &::before {
-      content: '';
-      display: block;
-      background: url('https://assets.rospirski.com/img/icons/quote.svg');
-      width: 144px;
-      height: 144px;
-      position: absolute;
-      top: -70px;
-      left: -30px;
-      z-index: 2;
-    }
-  }
-</style>

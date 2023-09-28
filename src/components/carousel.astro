@@ -1,36 +1,54 @@
 ---
+import PabloImg from '/src/assets/img/avatars/pablo.jpg'
+import MatheusImg from '/src/assets/img/avatars/matheus.jpg'
+import EricaImg from '/src/assets/img/avatars/erica.jpg'
+import { Image } from 'astro:assets'
 const depoimentos = [
   {
     text: 'Recomendo muito, precisei dos serviço dele para consertar um radio queimado, a troca da tela de um celular e a troca do carregador do outro, fez todos os serviço num ótimo prazo para entrega, e com um valor super acessível, fora o ótimo atendimento e localização.',
     name: 'Pablo Monfron Cutes',
     type: 'Facebook',
-    img: '/avatars/pablo.jpg',
+    img: PabloImg,
+  },
+  {
+    text: 'Normalmente, eu não sou de ficar deixando depoimentos por aí, mas a assistência merece. Eles não só arrumaram meu computador, como também explicaram tudo de um jeito que qualquer um entende. Valeu pelo serviço de qualidade.',
+    name: 'Matheus Teixeira Spohr',
+    type: 'Facebook',
+    img: MatheusImg,
+  },
+  {
+    text: 'Minha procura por uma assistência de confiança parou quando descobri a Rospirski Assistência Técnica. Eles botaram meu laptop pra funcionar direitinho, e o preço não foi facada. Eles sabem o que fazem, com certeza!',
+    name: 'Erica Schwartz',
+    type: 'Facebook',
+    img: EricaImg,
   },
 ]
 ---
 
 <div class="p-5">
-  <div class="carousel h-96 sm:h-72">
-    <div class="slides h-96 sm:h-72">
+  <div class="carousel h-64">
+    <div class="slides h-64">
       {
         depoimentos.map((i) => (
-          <div class="slide h-full flex flex-col ">
-            <div class="max-w-3xl mx-auto flex items-center grow">
-              <p class="font-medium text-2xl text-[#999] text-center">{i.text}</p>
-            </div>
-            <div class="flex items-center justify-center font-medium text-base flex-wrap flex-col sm:flex-row">
-              <div class="m-1 mr-2 w-16 h-16 sm:w-10 sm:h-10 relative flex justify-center items-center rounded-full bg-gray-500 text-xl text-white">
-                <img src={i.img} class="rounded-full" alt={i.name} />
-                <div class="absolute right-0 bottom-0 w-3 h-3 rounded-full bg-golden" />
+          <div class="slide">
+            <div class="ha flex flex-col">
+              <div class="max-w-3xl mx-auto flex items-center grow">
+                <p class="font-medium text-2xl text-[#999] text-center">"{i.text}"</p>
               </div>
-              <div>{i.name}</div>
-              <div class="px-1 hidden sm:block">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M11 0H14L9 20H6L11 0Z" fill="#FCD34D" />
-                </svg>
+              <div class="flex items-center justify-center font-medium text-base flex-wrap flex-col sm:flex-row mt-8">
+                <div class="m-1 mr-2 w-16 h-16 sm:w-10 sm:h-10 relative flex justify-center items-center rounded-full bg-gray-500 text-xl text-white">
+                  <Image src={i.img} class="rounded-full" alt={i.name} />
+                  <div class="absolute right-0 bottom-0 w-3 h-3 rounded-full bg-golden" />
+                </div>
+                <div>{i.name}</div>
+                <div class="px-1 hidden sm:block">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M11 0H14L9 20H6L11 0Z" fill="#FCD34D" />
+                  </svg>
+                </div>
+                <div class="w-10 h-1 bg-golden rounded my-1 block sm:hidden" />
+                <div>{i.type}</div>
               </div>
-              <div class="w-10 h-1 bg-golden rounded my-1 block sm:hidden" />
-              <div>{i.type}</div>
             </div>
           </div>
         ))
@@ -44,9 +62,6 @@ const depoimentos = [
 </div>
 
 <style lang="scss">
-  $carousel-height: 250px;
-  $control-size: 50px;
-
   .carousel {
     width: 100%;
     border-radius: 3px;
@@ -104,38 +119,54 @@ const depoimentos = [
 </style>
 
 <script>
-  const delay = 3000 //ms
+  document.addEventListener('DOMContentLoaded', () => {
+    const delay = 5000 //ms
 
-  const slides = document.querySelector('.slides')
-  const slidesCount = slides.childElementCount
-  const maxLeft = (slidesCount - 1) * 100 * -1
+    const slides = document.querySelector('.slides')
+    const slidesCount = slides.childElementCount
+    const maxLeft = (slidesCount - 1) * 100 * -1
 
-  let current = 0
+    let current = 0
 
-  function changeSlide(next = true) {
-    if (next) {
-      current += current > maxLeft ? -100 : current * -1
-    } else {
-      current = current < 0 ? current + 100 : maxLeft
+    function changeSlide(next = true) {
+      if (next) {
+        current += current > maxLeft ? -100 : current * -1
+      } else {
+        current = current < 0 ? current + 100 : maxLeft
+      }
+
+      slides.style.left = current + '%'
     }
 
-    slides.style.left = current + '%'
-  }
+    let autoChange = setInterval(changeSlide, delay)
+    const restart = function () {
+      clearInterval(autoChange)
+      autoChange = setInterval(changeSlide, delay)
+    }
 
-  let autoChange = setInterval(changeSlide, delay)
-  const restart = function () {
-    clearInterval(autoChange)
-    autoChange = setInterval(changeSlide, delay)
-  }
+    // Controls
+    document.querySelector('.next-slide')?.addEventListener('click', function () {
+      changeSlide()
+      restart()
+    })
 
-  // Controls
-  document.querySelector('.next-slide')?.addEventListener('click', function () {
-    changeSlide()
-    restart()
-  })
+    document.querySelector('.prev-slide')?.addEventListener('click', function () {
+      changeSlide(false)
+      restart()
+    })
 
-  document.querySelector('.prev-slide')?.addEventListener('click', function () {
-    changeSlide(false)
-    restart()
+    const slidersH = document.querySelectorAll('.ha')
+
+    function sliderHeightChange() {
+      let maxHeightHa = 0
+      slidersH.forEach((i) => {
+        if (i.clientHeight > maxHeightHa) maxHeightHa = i.clientHeight
+      })
+
+      document.querySelector('.carousel')?.setAttribute('style', `height:${maxHeightHa}px`)
+      document.querySelector('.slides')?.setAttribute('style', `height:${maxHeightHa}px`)
+    }
+    window.addEventListener('resize', sliderHeightChange)
+    sliderHeightChange()
   })
 </script>
