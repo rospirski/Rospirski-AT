@@ -13,7 +13,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint src/**/*.{js,ts,astro}",
-    "format": "prettier --write . --plugin=prettier-plugin-astro"
+    "format": "prettier --write . --plugin=prettier-plugin-astro",
+    "deploy": "pm2 deploy ecosystem.config.cjs prod",
+    "deploy:setup": "pm2 deploy ecosystem.config.cjs prod setup"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
