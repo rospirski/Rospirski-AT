@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import VRImage from '/src/assets/img/vr.jpg'
+import VRImage from '/src/assets/img/avatars/vr.png'
 import Carousel from './carousel.astro'
 const infos = [
   {
@@ -27,7 +27,9 @@ const infos = [
       <div class="px-5 sm:pl-32 w-full">
         <div class="max-w-[1036px] mx-auto block md:grid md:grid-cols-10 md:gap-10 md:items-center">
           <div class="md:col-span-4 flex items-center justify-center">
-            <Image src={VRImage} alt="Valdir Rospirski Técnico" class="rounded-full w-52 sm:w-72 mb-20 md:mb-0" />
+            <div class="rounded-full overflow-hidden bg-black1 shadow-lg">
+              <Image src={VRImage} alt="Valdir Rospirski Técnico" class="w-52 sm:w-72 mb-20 md:mb-0" />
+            </div>
           </div>
           <div class="md:col-span-6">
             <div>
